@@ -3,7 +3,16 @@ server:
 spring:
   application:
     name: peer-service
+  cloud:
+    consul:
+      discovery:
+        enabled: false
+        register: false
 eureka:
+  client:
+    enabled: false
+    fetchRegistry: false
+    registerWithEureka: false
   instance:
     appname: peer-service
 swagger:
@@ -18,15 +27,41 @@ server:
   port: 8881
 eureka:
   client:
+    enabled: true
+    fetchRegistry: true
+    registerWithEureka: true
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
 
 ---
 spring:
   profiles: azure
+  autoconfigure:
+    exclude:
+    - org.springframework.cloud.client.serviceregistry.ServiceRegistryAutoConfiguration
+    - org.springframework.cloud.client.serviceregistry.AutoServiceRegistrationAutoConfiguration
+  cloud:
+    service-registry:
+      auto-registration:
+        enabled: true
+        fail-fast: true
+      auto-multi-registration:
+        enabled: true
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        order: 0
+        enabled: true
+        register: true
+
 server:
   port: 8882
 eureka:
   client:
+    order: 1
+    enabled: true
+    fetchRegistry: true
+    registerWithEureka: true
     serviceUrl:
       defaultZone: http://localhost:8762/eureka
