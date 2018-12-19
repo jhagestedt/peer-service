@@ -1,7 +1,8 @@
-package org.springframework.cloud.client.serviceregistry;
+package com.example.service.discovery;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cloud.client.serviceregistry.AutoServiceRegistrationProperties;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration

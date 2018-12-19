@@ -1,4 +1,4 @@
-package org.springframework.cloud.client.serviceregistry.tuple;
+package com.example.service.discovery.tuple;
 
 public final class ImmutablePair<L, R> extends Pair<L, R> {
 

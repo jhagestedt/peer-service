@@ -1,4 +1,4 @@
-package org.springframework.cloud.client.serviceregistry.endpoint;
+package com.example.service.discovery;
 
 import static com.google.common.collect.Lists.newLinkedList;
 import static java.lang.Character.isUpperCase;
@@ -12,7 +12,7 @@ import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
 import org.springframework.boot.actuate.endpoint.annotation.WriteOperation;
 import org.springframework.cloud.client.serviceregistry.Registration;
 import org.springframework.cloud.client.serviceregistry.ServiceRegistry;
-import org.springframework.cloud.client.serviceregistry.tuple.Pair;
+import com.example.service.discovery.tuple.Pair;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.Assert;

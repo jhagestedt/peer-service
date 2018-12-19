@@ -1,4 +1,4 @@
-package org.springframework.boot.actuate.endpoint;
+package com.example.service.discovery;
 
 import static java.util.stream.Collectors.joining;
 

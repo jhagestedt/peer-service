@@ -1,4 +1,4 @@
-package org.springframework.boot.actuate.endpoint;
+package com.example.service.discovery;
 
 import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;

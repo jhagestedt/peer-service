@@ -1,4 +1,4 @@
-package org.springframework.cloud.client.serviceregistry.tuple;
+package com.example.service.discovery.tuple;
 
 import java.io.Serializable;
 import java.util.Map;

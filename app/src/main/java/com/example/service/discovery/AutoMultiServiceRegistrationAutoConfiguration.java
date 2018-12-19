@@ -1,7 +1,9 @@
-package org.springframework.cloud.client.serviceregistry;
+package com.example.service.discovery;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.cloud.client.serviceregistry.AutoServiceRegistration;
+import org.springframework.cloud.client.serviceregistry.AutoServiceRegistrationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
