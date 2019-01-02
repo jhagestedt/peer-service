@@ -39,6 +39,7 @@ public class MultiServiceRegistryEndpoint {
             return 1;
         }
     };
+
     private final Map<String, ServiceRegistry> serviceRegistries;
 
     private List<Pair<String, Pair<Registration, ServiceRegistry>>> pairs = new LinkedList<>();
