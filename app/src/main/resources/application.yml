@@ -23,6 +23,10 @@ swagger:
 ---
 spring:
   profiles: vcloud
+  autoconfigure:
+    exclude:
+      - org.springframework.cloud.consul.serviceregistry.ConsulServiceRegistryAutoConfiguration
+      - org.springframework.cloud.consul.serviceregistry.ConsulAutoServiceRegistrationAutoConfiguration
 server:
   port: 8881
 eureka:
@@ -36,6 +40,10 @@ eureka:
 ---
 spring:
   profiles: azure
+  autoconfigure:
+    exclude:
+      - org.springframework.cloud.consul.serviceregistry.ConsulServiceRegistryAutoConfiguration
+      - org.springframework.cloud.consul.serviceregistry.ConsulAutoServiceRegistrationAutoConfiguration
 server:
   port: 8882
 eureka:
