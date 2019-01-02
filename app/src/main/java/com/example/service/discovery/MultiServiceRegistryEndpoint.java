@@ -1,10 +1,8 @@
 package com.example.service.discovery;
 
-import static com.google.common.collect.Lists.newLinkedList;
 import static java.lang.Character.isUpperCase;
 
 import com.example.service.discovery.tuple.Pair;
-import com.google.common.collect.ImmutableMap;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,7 +16,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.Assert;
 
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.OptionalInt;
@@ -41,7 +41,7 @@ public class MultiServiceRegistryEndpoint {
     };
     private final Map<String, ServiceRegistry> serviceRegistries;
 
-    private List<Pair<String, Pair<Registration, ServiceRegistry>>> pairs = newLinkedList();
+    private List<Pair<String, Pair<Registration, ServiceRegistry>>> pairs = new LinkedList<>();
 
     public MultiServiceRegistryEndpoint(List<ServiceRegistry> serviceRegistries) {
         if (serviceRegistries != null) {
@@ -53,7 +53,7 @@ public class MultiServiceRegistryEndpoint {
                     LinkedHashMap::new
                 ));
         } else {
-            this.serviceRegistries = ImmutableMap.of();
+            this.serviceRegistries = new HashMap<>();
         }
     }
 
