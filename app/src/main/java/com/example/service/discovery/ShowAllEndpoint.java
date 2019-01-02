@@ -1,7 +1,5 @@
 package com.example.service.discovery;
 
-import static java.util.stream.Collectors.joining;
-
 import com.google.common.collect.Lists;
 
 import org.apache.commons.lang.StringUtils;
@@ -28,7 +26,6 @@ public class ShowAllEndpoint {
     @ReadOperation
     public ResponseEntity getEndpoints() {
         final Map<String, Object> endpointBeans = this.applicationContext.getBeansWithAnnotation(Endpoint.class);
-
         final List<String> endpoints = Lists.newLinkedList();
         for (final Entry<String, Object> entry : endpointBeans.entrySet()) {
             final Object endpointInstance = entry.getValue();
@@ -38,8 +35,7 @@ public class ShowAllEndpoint {
             endpoints.add(StringUtils.isNotBlank(id) ? id : "'" + entry.getKey() + "'");
         }
         endpoints.sort(String::compareTo);
-
-        return ResponseEntity.ok().body(endpoints.stream().collect(joining(",\n")));
+        return ResponseEntity.ok().body(String.join(",\n", endpoints));
     }
 
     @Autowired(required = false)

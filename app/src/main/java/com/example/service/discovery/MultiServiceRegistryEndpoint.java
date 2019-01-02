@@ -3,6 +3,7 @@ package com.example.service.discovery;
 import static com.google.common.collect.Lists.newLinkedList;
 import static java.lang.Character.isUpperCase;
 
+import com.example.service.discovery.tuple.Pair;
 import com.google.common.collect.ImmutableMap;
 
 import lombok.extern.slf4j.Slf4j;
@@ -12,7 +13,6 @@ import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
 import org.springframework.boot.actuate.endpoint.annotation.WriteOperation;
 import org.springframework.cloud.client.serviceregistry.Registration;
 import org.springframework.cloud.client.serviceregistry.ServiceRegistry;
-import com.example.service.discovery.tuple.Pair;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.Assert;
@@ -41,7 +41,6 @@ public class MultiServiceRegistryEndpoint {
     };
     private final Map<String, ServiceRegistry> serviceRegistries;
 
-    private List<Registration> registrations;
     private List<Pair<String, Pair<Registration, ServiceRegistry>>> pairs = newLinkedList();
 
     public MultiServiceRegistryEndpoint(List<ServiceRegistry> serviceRegistries) {
@@ -71,7 +70,6 @@ public class MultiServiceRegistryEndpoint {
     }
 
     public void setRegistrations(List<Registration> registrations) {
-        this.registrations = registrations;
         if (registrations != null) {
             registrations.forEach(registration -> {
                 final String name = discoveryServiceName(registration.getClass());
@@ -110,7 +108,5 @@ public class MultiServiceRegistryEndpoint {
                 .collect(Collectors.joining(","))
         );
     }
-
-
 
 }

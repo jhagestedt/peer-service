@@ -16,11 +16,11 @@ import javax.annotation.PostConstruct;
 @ConditionalOnProperty(value = "spring.cloud.service-registry.auto-multi-registration.enabled", havingValue = "true")
 public class AutoMultiServiceRegistrationAutoConfiguration {
 
-    @Autowired(required = false)
-    private List<AutoServiceRegistration> autoServiceRegistrations;
-
     @Autowired
     private AutoServiceRegistrationProperties properties;
+
+    @Autowired(required = false)
+    private List<AutoServiceRegistration> autoServiceRegistrations;
 
     @PostConstruct
     protected void init() {

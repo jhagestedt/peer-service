@@ -17,7 +17,7 @@ eureka:
     appname: peer-service
 swagger:
   title: Message API
-  description: Message API that return a message
+  description: Message API that returns a message
   include: /api/.*
 
 ---
@@ -36,6 +36,19 @@ eureka:
 ---
 spring:
   profiles: azure
+server:
+  port: 8882
+eureka:
+  client:
+    enabled: true
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8762/eureka
+
+---
+spring:
+  profiles: hybrid
   autoconfigure:
     exclude:
     - org.springframework.cloud.client.serviceregistry.ServiceRegistryAutoConfiguration
@@ -54,7 +67,6 @@ spring:
         order: 0
         enabled: true
         register: true
-
 server:
   port: 8882
 eureka:
